@@ -17,10 +17,13 @@ df = pd.DataFrame(data)
 cursor = db.cursor()
 
 # USE ONLY TO RESET
+# 
 # cursor.execute("DROP DATABASE IF EXISTS northwindtestingdb")
+# 
 
 cursor.execute("CREATE DATABASE IF NOT EXISTS northwindtestingdb")
 cursor.execute("USE northwindtestingdb")
+
 cursor.execute('''CREATE TABLE IF NOT EXISTS products (
     productID INT AUTO_INCREMENT PRIMARY KEY,
     productName VARCHAR(255),
@@ -32,7 +35,6 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS products (
     unitsOnOrder INT,
     reorderLevel INT,
     discontinued INT)''')
-
 
 for row in df.itertuples():
     sql=('''

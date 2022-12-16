@@ -9,6 +9,7 @@ Python libraries:
 - pandas
 - mysql.connector
 - os
+- tabulate
 - dotenv
 
 To run:
