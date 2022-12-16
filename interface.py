@@ -17,7 +17,7 @@ cursor.execute("USE northwindtestingdb")
 
 def init():
     print("\nWelcome to the database! Choose from the options below:\n")
-    dataInputQuestion = int(input(
+    dataInputQuestion = (input(
 '''
 1. Add new product (all fields required)
 2. Delete product by ID number
@@ -25,7 +25,7 @@ def init():
 4. Search products by full name
 '''))
 
-    if dataInputQuestion == 1:
+    if dataInputQuestion == "1":
         productName = input("Product name: ")
         supplierID = int(input("Supplier ID: "))
         categoryID = int(input("Category ID: "))
@@ -65,13 +65,13 @@ def init():
         db.commit()
         print("\nProduct '" + productName + "' added.\n")
 
-    elif dataInputQuestion == 2:
+    elif dataInputQuestion == "2":
         productID = input("Enter product ID: ")
         cursor.execute("DELETE FROM products WHERE productID = " + productID)
         db.commit()
         print("\nProduct " + productID + " deleted.\n")
 
-    elif dataInputQuestion == 3:
+    elif dataInputQuestion == "3":
         def checkInput():
             firstLetter = input("Enter first letter: ")
             if len(firstLetter) > 1:
@@ -88,7 +88,7 @@ def init():
         print("\n Results:")
         print(tabulate(result, headers=['productID', 'productName', 'unitPrice', 'unitsInStock'], tablefmt='psql'))
 
-    elif dataInputQuestion == 4:
+    elif dataInputQuestion == "4":
         productName = input("Enter product name: ").strip().replace("'","''")
         cursor.execute("SELECT productID, productName, unitPrice, unitsInStock FROM products WHERE productName LIKE '%" + productName + "%'")
         db.commit()
