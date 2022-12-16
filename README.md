@@ -22,6 +22,7 @@ Features:
 ```md
 - Add products
 - Delete products
+- Search for products
 ```
 
 Data is from the [Northwind example database.](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv)
