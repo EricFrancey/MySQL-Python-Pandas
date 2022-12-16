@@ -34,7 +34,24 @@ def init():
         unitsInStock = int(input("In stock: "))
         unitsOnOrder = int(input("On order: "))
         reorderLevel = int(input("Reorder level: "))
-        discontinued = input("Discontinued (y/n): ")
+        discontinued = (input("Discontinued (y/n): "))
+
+        def checkInput():
+            discontinued = (input("Discontinued (y/n): "))
+            if discontinued == "y":
+                discontinued = 0
+            elif discontinued == "n":
+                discontinued = 1
+            else:
+                checkInput()
+    
+        if discontinued == "y":
+            discontinued = 0
+        elif discontinued == "n":
+            discontinued = 1
+        else:
+            checkInput()
+        
         sql = '''
             INSERT INTO products (
                 productName, 

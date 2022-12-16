@@ -18,7 +18,7 @@ cursor = db.cursor()
 
 # USE ONLY TO RESET
 # 
-# cursor.execute("DROP DATABASE IF EXISTS northwindtestingdb")
+cursor.execute("DROP DATABASE IF EXISTS northwindtestingdb")
 # 
 
 cursor.execute("CREATE DATABASE IF NOT EXISTS northwindtestingdb")
@@ -34,7 +34,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS products (
     unitsInStock INT,
     unitsOnOrder INT,
     reorderLevel INT,
-    discontinued INT)''')
+    discontinued BOOLEAN)''')
 
 for row in df.itertuples():
     sql=('''
