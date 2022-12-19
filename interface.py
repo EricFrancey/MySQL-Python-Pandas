@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from tabulate import tabulate
 
 load_dotenv()
+database = os.environ.get('DBNAME')
 
 db = mysql.connector.connect(
   host= os.environ.get('HOST'),
@@ -13,7 +14,7 @@ db = mysql.connector.connect(
 
 cursor = db.cursor(buffered=True)
 
-cursor.execute("USE northwindtestingdb")
+cursor.execute("USE " + database)
 
 def init():
     print("\nWelcome to the database! Choose from the options below:\n")

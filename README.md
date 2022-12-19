@@ -13,7 +13,7 @@ Python libraries:
 - dotenv
 
 To run:
-- Enter your MySQL credentials into "example.env" and remove "example" from the file name.
+- Enter your MySQL credentials and new database name into "example.env" and remove "example" from the file name.
 - run seeds.py to seed with products.csv.
 - run interface.py
 ```

@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import pandas as pd
 
 load_dotenv()
+database = os.environ.get('DBNAME')
 
 db = mysql.connector.connect(
   host= os.environ.get('HOST'),
@@ -11,18 +12,18 @@ db = mysql.connector.connect(
   password= os.environ.get('PASSWORD'),
 )
 
-data = pd.read_csv (r'products.csv')   
+data = pd.read_csv (r'data/products.csv')   
 df = pd.DataFrame(data)
 
 cursor = db.cursor()
 
 # USE ONLY TO RESET
 # 
-cursor.execute("DROP DATABASE IF EXISTS northwindtestingdb")
+# cursor.execute("DROP DATABASE IF EXISTS " + database)
 # 
 
-cursor.execute("CREATE DATABASE IF NOT EXISTS northwindtestingdb")
-cursor.execute("USE northwindtestingdb")
+cursor.execute("CREATE DATABASE IF NOT EXISTS " + database)
+cursor.execute("USE " + database)
 
 cursor.execute('''CREATE TABLE IF NOT EXISTS products (
     productID INT AUTO_INCREMENT PRIMARY KEY,
