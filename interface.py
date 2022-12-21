@@ -18,6 +18,25 @@ cursor.execute("USE " + database)
 
 def init():
     print("\nWelcome to the database! Choose from the options below:\n")
+    mainMenu = (input(
+'''
+1. List all tables
+2. Choose table
+3. Create new table
+4. Alter table
+5. Delete table
+6. Drop database
+'''))
+
+    if mainMenu == "1":
+        cursor.execute("SHOW TABLES")
+        result = cursor.fetchall()
+        print("\n Tables in " + database + ":")
+        print(tabulate(result, tablefmt='psql'))
+    elif mainMenu =="2":
+        chooseTable = (input("Enter table name: "))
+        cursor.execute("SELECT * FROM " + chooseTable)
+
     dataInputQuestion = (input(
 '''
 1. Add new product (all fields required)
