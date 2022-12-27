@@ -15,7 +15,7 @@ Python libraries:
 
 To run:
 - Enter your MySQL credentials and new database name into "example.env" and remove "example" from the file name.
-- run seeds.py to seed with [Northwind Sample Database.](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv).
+- run seeds.py to seed with Northwind Sample Database.
 - run interface.py
 ```
 
@@ -26,3 +26,5 @@ Features:
 - Search for products
 - Basic plots
 ```
+
+Data is from the [Northwind Sample Database.](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv)
