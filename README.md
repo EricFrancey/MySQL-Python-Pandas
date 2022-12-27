@@ -11,10 +11,11 @@ Python libraries:
 - os
 - tabulate
 - dotenv
+- matplotlib
 
 To run:
 - Enter your MySQL credentials and new database name into "example.env" and remove "example" from the file name.
-- run seeds.py to seed with products.csv.
+- run seeds.py to seed with [Northwind Sample Database.](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv).
 - run interface.py
 ```
 
@@ -23,6 +24,5 @@ Features:
 - Add products
 - Delete products
 - Search for products
+- Basic plots
 ```
-
-Data is from the [Northwind example database.](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv)
