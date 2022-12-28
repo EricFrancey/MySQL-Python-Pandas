@@ -2,6 +2,7 @@ import os
 from tabulate import tabulate
 
 import connection
+import pandasfuns
 import plots
 
 cursor = connection.db.cursor(buffered=True)
@@ -11,13 +12,13 @@ cursor.execute("USE " + connection.database)
 print("\nWelcome to the database! Choose from the options below:")
 
 def init():
-
     mainMenu = (input(
 '''
 1. List all tables
 2. View table
 3. Alter products table
-4. Plots menu
+4. Query products data
+5. Plots menu
 '''))
 
 # Create new table
@@ -38,6 +39,8 @@ def init():
     elif mainMenu == "3":
         alterProducts()
     elif mainMenu == "4":
+        pandasFuns()
+    elif mainMenu == "5":
         plotsDisplay()
     else:
         init()
@@ -146,6 +149,26 @@ def alterProducts():
         alterProducts()
     else:
         init()
+
+def pandasFuns():
+    print("Choose what to view: ")
+    choosePandas = (input(
+'''
+1. Description
+2. Numeric covariance
+3. Numeric sums
+4. Back to main menu
+'''))
+    if choosePandas == "1":
+        pandasfuns.description()
+    if choosePandas == "2":
+        pandasfuns.cov()
+    if choosePandas == "3":
+        pandasfuns.sum()
+    if choosePandas == "4":
+        init()
+    else:
+        pandasFuns()
 
 def plotsDisplay():
     print("Choose type of graph: ")
