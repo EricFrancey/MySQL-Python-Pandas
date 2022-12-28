@@ -1,26 +1,17 @@
-import mysql.connector
 import os
-from dotenv import load_dotenv
 import pandas as pd
 
-load_dotenv()
-database = os.environ.get('DBNAME')
+import connection
 
-db = mysql.connector.connect(
-  host= os.environ.get('HOST'),
-  user= os.environ.get('USER'),
-  password= os.environ.get('PASSWORD'),
-)
-
-cursor = db.cursor()
+cursor = connection.db.cursor()
 
 # USE ONLY TO RESET
 # 
-cursor.execute("DROP DATABASE IF EXISTS " + database)
+cursor.execute("DROP DATABASE IF EXISTS " + connection.database)
 # 
 
-cursor.execute("CREATE DATABASE IF NOT EXISTS " + database)
-cursor.execute("USE " + database)
+cursor.execute("CREATE DATABASE IF NOT EXISTS " + connection.database)
+cursor.execute("USE " + connection.database)
 
 for x in os.listdir('data'):
   tableName = x.split('.')[0]
@@ -73,8 +64,8 @@ for x in os.listdir('data'):
     sql = (f'''INSERT INTO {tableName} ({stringSQL}) VALUES ({stringValPlaceholder})''')  
     cursor.execute(sql,val)   
 
-db.commit()
+connection.db.commit()
 cursor.close()
-db.close()
+connection.db.close()
 
 print("\nDatabase seeded.\n")
