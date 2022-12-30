@@ -56,6 +56,7 @@ def alterProducts():
 '''))
 
     if dataInputQuestion == "1":
+        productID = input("Product ID: ")
         productName = input("Product name: ")
         supplierID = int(input("Supplier ID: "))
         categoryID = int(input("Category ID: "))
@@ -84,6 +85,7 @@ def alterProducts():
         
         sql = '''
             INSERT INTO products (
+                productID,
                 productName, 
                 supplierID, 
                 categoryID, 
@@ -93,10 +95,11 @@ def alterProducts():
                 unitsOnOrder, 
                 reorderLevel, 
                 discontinued) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             '''
 
         val = (
+            productID,
             productName, 
             supplierID, 
             categoryID, 

@@ -65,36 +65,36 @@ for x in os.listdir('data'):
     cursor.execute(sql,val)   
 
 cursor.execute('''ALTER TABLE categories
-                  ADD PRIMARY KEY (categoryID)''')
+                  ADD PRIMARY KEY AUTO_INCREMENT (categoryID)''')
 
 cursor.execute('''ALTER TABLE employees
-                  ADD PRIMARY KEY (employeeID)''')
+                  ADD PRIMARY KEY AUTO_INCREMENT (employeeID)''')
 
 cursor.execute('''ALTER TABLE orders
-                  ADD PRIMARY KEY (orderID),
+                  ADD PRIMARY KEY AUTO_INCREMENT (orderID),
                   ADD FOREIGN KEY (employeeID) REFERENCES employees(employeeID)''')
 
 cursor.execute('''ALTER TABLE suppliers
-                  ADD PRIMARY KEY (supplierID)''')
+                  ADD PRIMARY KEY AUTO_INCREMENT (supplierID)''')
 
 cursor.execute('''ALTER TABLE products
-                  ADD PRIMARY KEY (productID),
+                  ADD PRIMARY KEY AUTO_INCREMENT (productID),
                   ADD FOREIGN KEY (categoryID) REFERENCES categories(categoryID),
                   ADD FOREIGN KEY (supplierID) REFERENCES suppliers(supplierID)''')
 
 cursor.execute('''ALTER TABLE regions
-                  ADD PRIMARY KEY (regionID)''')
+                  ADD PRIMARY KEY AUTO_INCREMENT (regionID)''')
 
 cursor.execute('''ALTER TABLE shippers
-                  ADD PRIMARY KEY (shipperID)''')
+                  ADD PRIMARY KEY AUTO_INCREMENT (shipperID)''')
 
 cursor.execute('''ALTER TABLE territories 
-                  ADD PRIMARY KEY (territoryID),
+                  ADD PRIMARY KEY AUTO_INCREMENT (territoryID),
                   ADD FOREIGN KEY (regionID) REFERENCES regions(regionID)''')
 
 cursor.execute('''ALTER TABLE employee_territories
                   ADD FOREIGN KEY (territoryID) REFERENCES territories(territoryID)''')
-                  
+
 cursor.execute('''ALTER TABLE order_details
                   ADD FOREIGN KEY (productID) REFERENCES products(productID)''')
 
