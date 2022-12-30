@@ -1,5 +1,7 @@
 # MySQL-Python-Pandas
 
+[Click here to see sample outputs](https://ericfrancey.github.io/MySQL-Python-Pandas/)
+
 Required to use:
 ```md
 - install Python
@@ -21,10 +23,12 @@ To run:
 
 Features:
 ```md
-- Add products
-- Delete products
-- Search for products
+- Convert csv to SQL
+- View tables
+- Alter tables
+- Use pandas on tables
 - Basic plots
+- Save plots to machine as .jpg
 ```
 
 Data is from the [Northwind Sample Database.](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv)
