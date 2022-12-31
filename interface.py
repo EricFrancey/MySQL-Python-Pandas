@@ -19,6 +19,7 @@ def init():
 3. Alter products table
 4. Query products data
 5. Plots menu
+6. Quit
 '''))
 
 # Create new table
@@ -42,8 +43,12 @@ def init():
         pandasFuns()
     elif mainMenu == "5":
         plotsDisplay()
+    elif mainMenu == "6":
+        print("\nSee you next time!\n")
+        return
     else:
         init()
+        
 
 def alterProducts():
     dataInputQuestion = (input(
