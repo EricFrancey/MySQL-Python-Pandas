@@ -1,0 +1,27 @@
+body {
+    background-color: gray;
+}
+
+h1 {
+    color: whitesmoke;
+    height: 50px;
+    background-color: black;
+    border: 5px solid white;
+    border-radius: 20px;
+    padding-right: 400px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    padding-top: 25px
+
+}
+
+.top-blurb {
+    color:whitesmoke;
+    font-size: 20px;
+    margin-left: 400px
+}
+
+.top-line {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+}

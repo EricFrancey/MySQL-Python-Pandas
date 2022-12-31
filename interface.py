@@ -1,9 +1,11 @@
 import os
 from tabulate import tabulate
 
-import connection
-import pandasfuns
-import plots
+import sys
+sys.path.insert(0, "python_modules")
+from python_modules import connection
+from python_modules import pandasfuns
+from python_modules import plots
 
 cursor = connection.db.cursor(buffered=True)
 

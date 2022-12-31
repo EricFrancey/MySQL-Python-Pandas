@@ -1,7 +1,8 @@
 import os
 import pandas as pd
-
-import connection
+import sys
+sys.path.insert(0, "python_modules")
+from python_modules import connection
 
 cursor = connection.db.cursor()
 
